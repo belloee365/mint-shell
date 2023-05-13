@@ -1,0 +1,10 @@
+echo "password" |sudo -S ls /root &>/dev/null
+sudo ls /root &>/dev/null
+
+# Running in a sub shell, in some cases the session is not inherited and the password needs to be entered again
+(echo "password" | sudo -S ls /root &>/dev/null)
+
+#ditto
+for i in $(echo "password" | sudo -S ls /root ) ; do
+  echo $i
+done
